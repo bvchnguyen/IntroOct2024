@@ -1,6 +1,10 @@
-@Software.Api_HostAddress = http://localhost:5021
-
-GET {{Software.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
+@Software.Api_HostAddress = http://localhost:1337
+ 
+POST {{Software.Api_HostAddress}}/catalog
+Content-Type: application/json
+ 
+{
+    "title": "Visual Studio Code",
+    "vendor": "Microsoft",
+    "isOpenSource": true
+}
