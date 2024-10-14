@@ -9,7 +9,9 @@ I am *not* looking for super "technical" stuff here. Just your ability to expres
 We created a git repository on our VMs and added some existing code and committed it. We then used the `gh` cli tool to push that code to Github. 
 
 - Say a few words about why *we* are using source control in this class?
+
 To reduce conflict, maintain code and history, QA. 
+
 - Say a few words about how source control is used by teams of developers working on the same code base.
 1. There is a master branch, which holds the "approved" code from all developers
 2. All developers, when working on their assigned work, will create branches to ensure that they are not conflicting work with other developers.
@@ -68,7 +70,7 @@ We "tested" our API three different ways.
 
 Which is the *right* way to do it? Why give preference to automated tests? 
 
-Automated should the developer's choice or process when writing code, but all code should be manually tested as well (maybe by different branch of )
+Automated should the developer's choice or process when writing code, but all code should be manually tested as well (maybe by different team in the development cycle)
 
 ### Extra Credit
 
