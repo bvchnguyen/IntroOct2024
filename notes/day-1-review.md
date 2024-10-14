@@ -16,9 +16,15 @@ To reduce conflict, maintain code and history, QA.
 3. Once a developer's work is done (add, commit, push), they'll create a pull request to merge to the master branch.
 4. A PR is for a other developers to code review the work, and approve the merge to master. 
 - What is meant when we say a copy of the repository is the "origin"? (That's our copy on github).
+
+A remote repository in which a local copy is cloned. Origin, or sometimes Master or Main, is the default name. 
+
 - Why do we create commits locally?
+
 To save/track our work that we've done since the previous commit.
+
 - Why do we push those commits to Github?
+
 To update our main repository with the work that we've committed locally.
 
 
@@ -33,8 +39,8 @@ What were the steps, as detailed as you like, that we took to create our reposit
 5. gh something (I forgot sorry D:)
 
 What are some other ways you might do the same thing?
-You can do git push origin branch-name instead of gh command
-You can also do this through VS code or Visual Studio's own git tools instead of CLI
+- You can do git push origin branch-name instead of gh command
+- You can also do this through VS code or Visual Studio's own git tools instead of CLI
 
 
 ## 2. Services
@@ -45,7 +51,7 @@ We began a project in Visual Studio to create a service. What is meant by the te
 Our service exposes an *interface* that other applications can use to drive our service (make it do stuff). This is an
 "Application Programming Interfact". How does an API differ from a "User Interface" (UI)? How are they similiar?
 
-An API is used to devs or other applications, in which it allows systems to communicate with each other by sending requests and receiving responses. A UI is designed for the end-user (customer/client), who interacts with the software that calls the API.
+- An API is used to devs or other applications, in which it allows systems to communicate with each other by sending requests and receiving responses. A UI is designed for the end-user (customer/client), who interacts with the software that calls the API.
 
 What are some benefits of exposing a service's interface using the HTTP Protocol?
 
@@ -61,6 +67,8 @@ We "tested" our API three different ways.
 3. Automated using an xUnit test project.
 
 Which is the *right* way to do it? Why give preference to automated tests? 
+
+Automated should the developer's choice or process when writing code, but all code should be manually tested as well (maybe by different branch of )
 
 ### Extra Credit
 
