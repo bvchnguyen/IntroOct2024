@@ -6,9 +6,17 @@ namespace Banking.Domain;
 public class BankAccount
 {
     private decimal _balance = 5000M;
-    public void Deposit(decimal amountToDeposit)
+    private IBonusCalculator _calculator;
+
+    public BankAccount(IBonusCalculator bonusCalculator)
     {
-        _balance += amountToDeposit;
+        _calculator = bonusCalculator;
+    }
+    public virtual void Deposit(decimal amountToDeposit)
+    {
+        decimal bonus = _calculator.CalculateBonusForDeposit(_balance, amountToDeposit);
+
+        _balance = amountToDeposit + bonus;
     }
 
     public decimal GetBalance()
