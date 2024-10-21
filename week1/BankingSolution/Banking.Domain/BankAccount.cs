@@ -14,7 +14,7 @@ public class BankAccount
     }
     public virtual void Deposit(decimal amountToDeposit)
     {
-        decimal bonus = _calculator.CalculateBonusForDeposit(_balance, amountToDeposit);
+        decimal bonus = _calculator.CalculateBonusForDepositOn(_balance, amountToDeposit);
 
         _balance = amountToDeposit + bonus;
     }

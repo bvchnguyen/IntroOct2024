@@ -1,7 +1,7 @@
 ﻿using Banking.Domain;
 
 namespace Banking.Tests.Account;
-public class OverdraftingAccounts
+public class OverdraftingAccounts : BankAccount
 {
     [Fact]
     public void OverdraftIsNotAllowed()

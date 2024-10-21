@@ -5,7 +5,7 @@ namespace Software.Api.Catalog;
 public class CatalogController : ControllerBase
 {
     [HttpPost("/Catalog")]
-    public async Task<ActionResult> AddSoftwareCatalogAsync(
+    public record Task<ActionResult> AddSoftwareCatalogAsync(
         [FromBody] CatalogCreateModel request)
     {
         var response = new CatalogResponseModel()
@@ -21,14 +21,22 @@ public class CatalogController : ControllerBase
 }
 
 
-public class CatalogCreateModel
+public record CatalogCreateModel
 {
     public string Title { get; set; } = string.Empty;
     public string Vendor { get; set; } = string.Empty;
     public bool IsOpenSource { get; set; }
 }
 
-public class CatalogResponseModel
+public record CatalogResponseModel
+{
+    public Guid Id { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Vendor { get; set; } = string.Empty;
+    public bool IsOpenSource { get; set; }
+}
+
+public class CatalogEntity
 {
     public Guid Id { get; set; }
     public string Title { get; set; } = string.Empty;
