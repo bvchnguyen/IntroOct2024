@@ -1,12 +1,17 @@
-import { Component, ChangeDetectionStrategy, input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  signal,
+  input,
+} from '@angular/core';
 import { TransactionRecord } from '../types';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-transaction-history',
+  selector: 'app-banking-transaction-history',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, DatePipe],
   template: `
     <div class="overflow-x-auto">
       <table class="table">
@@ -23,6 +28,7 @@ import { CurrencyPipe } from '@angular/common';
         <tbody>
           @for(tx of historyToDisplay(); track tx.id) {
           <tr class="bg-base-200">
+            <th [title]="tx.id">{{ tx.created | date : 'medium' }}</th>
             <th>{{ tx.id }}</th>
             <td>{{ tx.startingBalance | currency }}</td>
             <td>

@@ -5,7 +5,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
-  template: ` <p>Home page stuff</p> `,
+  template: ` <p>Home Page Stuff Here</p> `,
   styles: ``,
 })
 export class HomePageComponent {}
