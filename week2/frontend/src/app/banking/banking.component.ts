@@ -24,8 +24,14 @@ import { BankingStore } from './services/bank.store';
   ],
   template: `
     <app-banking-nav />
+    @if(store.loaded()) {
     <div>
-      <p>Your Balance is {{ store.balance() | currency }}</p>
+      <p>
+        Your Balance is {{ store.balance() | currency }}
+        @if(store.hasPendingTransactions()) {
+        <small>Note: Some transactions are pending, yo.</small>
+        }
+      </p>
 
       <div class="p-12">
         <a routerLink="deposit" class="m-8 btn btn-lg btn-success"
@@ -41,9 +47,14 @@ import { BankingStore } from './services/bank.store';
       </div>
       <router-outlet />
     </div>
+    } @else {
+    <span class="loading loading-bars loading-lg"></span>
+    }
   `,
   styles: ``,
 })
 export class BankingComponent {
   store = inject(BankingStore);
+
+  constructor() {}
 }
