@@ -29,7 +29,6 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
           @for(tx of historyToDisplay(); track tx.id) {
           <tr class="bg-base-200">
             <th [title]="tx.id">{{ tx.created | date : 'medium' }}</th>
-            <th>{{ tx.id }}</th>
             <td>{{ tx.startingBalance | currency }}</td>
             <td>
               @if(tx.type === 'deposit') {
@@ -38,7 +37,7 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
               <span>👇</span>
               }
             </td>
-            <td>{{ tx.amount | currency }}</td>
+            <td class="text-right">{{ tx.amount | currency }}</td>
             <td>{{ tx.newBalance | currency }}</td>
           </tr>
           } @empty {

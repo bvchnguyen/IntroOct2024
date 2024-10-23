@@ -1,17 +1,28 @@
 import { Routes } from '@angular/router';
 import { BankingComponent } from './banking.component';
-import { BankingStore } from '../services/bank.store';
-import { StatementComponent } from './statement.component';
+import { StatementComponent } from './pages/statement.component';
+import { BankingStore } from './services/bank.store';
+import { WithdrawComponent } from './pages/withdraw.component';
+import { DepositComponent } from './pages/deposit.component';
+import { BankDataService } from './services/bank-data.service';
 
 export const BANKING_ROUTES: Routes = [
   {
-    path: '',
+    path: '', // /banking
     component: BankingComponent,
-    providers: [BankingStore],
+    providers: [BankingStore, BankDataService],
     children: [
       {
-        path: 'statement',
+        path: 'statement', // banking/statement
         component: StatementComponent,
+      },
+      {
+        path: 'withdrawal',
+        component: WithdrawComponent,
+      },
+      {
+        path: 'deposit',
+        component: DepositComponent,
       },
     ],
   },
