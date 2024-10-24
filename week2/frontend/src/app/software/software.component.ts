@@ -6,7 +6,10 @@ import { CreateComponent } from './pages/create.component';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CreateComponent],
-  template: ` <app-software-create /> `,
+  template: `
+    <p>The software stuff will go here</p>
+    <app-software-create />
+  `,
   styles: ``,
 })
 export class SoftwareComponent {}
