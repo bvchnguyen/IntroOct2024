@@ -1,6 +1,5 @@
 import { http, HttpResponse } from 'msw';
 import { SoftwareItemModel } from '../app/software/types';
-
 const fakeItems: SoftwareItemModel[] = [
   {
     id: '1',
@@ -15,7 +14,6 @@ const fakeItems: SoftwareItemModel[] = [
     isOpenSource: false,
   },
 ];
-
 const handlers = [
   http.get('http://localhost:1337/catalog', () => {
     return HttpResponse.json(fakeItems);

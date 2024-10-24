@@ -1,5 +1,11 @@
-import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { addEntity, withEntities } from '@ngrx/signals/entities';
+import {
+  patchState,
+  signalStore,
+  withHooks,
+  withMethods,
+  withState,
+} from '@ngrx/signals';
+import { addEntity, setEntities, withEntities } from '@ngrx/signals/entities';
 import { SoftwareItemCreateModel, SoftwareItemModel } from '../types';
 import { inject } from '@angular/core';
 import { SoftwareDataService } from './software-data.service';
@@ -15,7 +21,7 @@ export const SoftwareStore = signalStore(
   withMethods((store) => {
     const service = inject(SoftwareDataService);
     return {
-      load: rxMethod<void>(
+      _load: rxMethod<void>(
         pipe(
           switchMap(() =>
             service.getCatalog().pipe(
@@ -27,6 +33,23 @@ export const SoftwareStore = signalStore(
           )
         )
       ),
+      addItem: rxMethod<SoftwareItemCreateModel>(
+        pipe(
+          mergeMap((item) =>
+            service.addItem(item).pipe(
+              tapResponse({
+                next: (i) => patchState(store, addEntity(i)),
+                error: (e) => console.log(e),
+              })
+            )
+          )
+        )
+      ),
     };
+  }),
+  withHooks({
+    onInit(store) {
+      store._load();
+    },
   })
 );
